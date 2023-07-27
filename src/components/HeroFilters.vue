@@ -3,17 +3,21 @@
 		<div class="filters__container">
 			<div class="filters__container-switch" :class="{ 'filters__container-switch-hidden': isInputActive }">
 				<label class="switch">
-					<input type="checkbox" id="switch-input" @change="isSwitchActive = !isSwitchActive" />
+					<input
+						type="checkbox"
+						id="switch-input"
+						@change="isSwitchActive = !isSwitchActive"
+						checked="checked"
+						disabled
+					/>
 					<span
 						class="slider round"
 						:class="{
 							'switch-active': isSwitchActive,
 						}"
 					>
-						<span class="filters__text-switch switch__text">Отклики</span>
-						<a href="/favorites.html" target="_blank" class="filters__text-switch switch__text"
-							>Избранное</a
-						>
+						<a href="./replies.html" target="_blank" class="filters__text-switch switch__text">Отклики</a>
+						<span class="filters__text-switch switch__text">Избранное</span>
 					</span>
 				</label>
 			</div>
@@ -27,26 +31,6 @@
 					@keyup.enter="handleSearchInput()"
 				/>
 				<button class="filters__button-search" @click="handleSearchInput()">Найти</button>
-			</div>
-			<div class="filters__container-statuses">
-				<input
-					type="text"
-					readonly="readonly"
-					class="filters__input-select"
-					:class="{ 'filters__input-select-active': listVisiblity }"
-					v-model="$store.state.selectedStatus"
-					@click="toggleListVisibility()"
-				/>
-				<ul class="filters__list-select" :class="{ 'filters__list-select-active': listVisiblity }">
-					<li
-						class="filters__item-select"
-						v-for="(status, idx) in $store.state.statusesList"
-						:key="idx"
-						@click="setNewStatus(status)"
-					>
-						{{ status }}
-					</li>
-				</ul>
 			</div>
 		</div>
 		<div class="filters__container-main" :class="{ 'filters__container-main-active': isInputActive }">
@@ -93,7 +77,7 @@ export default {
 	name: "HeroFilters",
 	data() {
 		return {
-			isSwitchActive: false,
+			isSwitchActive: true,
 			isInputActive: false,
 			listVisiblity: false,
 			blockToggleCheckbox: false,
@@ -153,16 +137,8 @@ export default {
 		updateSlider() {
 			this.$emit("redrawSlider");
 		},
-		setNewStatus(status) {
-			this.$store.commit("setNewStatus", status);
-			this.toggleListVisibility();
-		},
 		toggleListVisibility() {
 			this.listVisiblity = !this.listVisiblity;
-		},
-		clearFilterModelStatus() {
-			this.$store.commit("clearFilterModelStatus");
-			this.toggleListVisibility();
 		},
 		handleSearchInput() {
 			this.removeAllChecked();
@@ -170,19 +146,6 @@ export default {
 			this.$emit("searchInputFilter");
 			this.updateSlider();
 		},
-	},
-	computed: {
-		selectedStatus() {
-			return this.$store.state.selectedStatus;
-		},
-	},
-	watch: {
-		selectedStatus() {
-			this.updateSlider();
-		},
-	},
-	mounted() {
-		this.$store.commit("setNewStatus");
 	},
 };
 </script>
@@ -216,31 +179,13 @@ export default {
 			display: none;
 			border: 0;
 			padding: 0;
+			max-width: 1140px;
 			&-active {
 				border: 1px solid var(--green-color);
 				padding: 20px;
 				padding-left: 25px;
 				margin-top: 25px;
 				display: block;
-			}
-		}
-		&-statuses {
-			width: 100%;
-			height: 100%;
-			max-width: 300px;
-			position: relative;
-			cursor: pointer;
-			&::after {
-				content: "";
-				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				right: 13px;
-				width: 25px;
-				height: 25px;
-				background: url("../img/triangle.svg") no-repeat;
-				background-position: center center;
-				pointer-events: none;
 			}
 		}
 	}
@@ -294,7 +239,6 @@ export default {
 	}
 	&__list {
 		display: flex;
-		justify-content: space-between;
 		gap: 45px;
 		margin-bottom: 25px;
 		&-select {
@@ -324,7 +268,6 @@ export default {
 	&__item {
 		display: flex;
 		gap: 25px;
-		width: 100%;
 		&-select {
 			border-radius: 3px;
 			border: 1px solid rgba(225, 83, 53, 0.25);
@@ -347,7 +290,7 @@ export default {
 		background: var(--white-color);
 		padding: 10px;
 		width: 100%;
-		max-width: 280px;
+		min-width: 280px;
 		& .filters__category {
 			&:not(:last-child) {
 				margin-bottom: 7px;

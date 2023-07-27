@@ -5,7 +5,6 @@
 			<div class="hero__table">
 				<div class="hero__header">
 					<div class="hero__row">
-						<div class="hero__cell hero__cell-header hero__col-vacancy">Вакансия</div>
 						<div class="hero__cell hero__cell-header hero__cell-header-name hero__col-name">ФИО</div>
 						<div class="hero__cell hero__cell-header hero__col-phone">Телефон</div>
 						<div class="hero__cell hero__cell-header hero__col-job">Должность</div>
@@ -33,7 +32,6 @@
 				>
 					<swiper-slide v-for="(slide, idx) in $store.state.preparedSlides" :key="idx">
 						<div class="hero__row" v-for="(row, idx) in slide" :key="idx">
-							<div class="hero__cell hero__col-vacancy">{{ row.vacancy }}</div>
 							<div class="hero__cell hero__col-name">{{ row.name }}</div>
 							<div class="hero__cell hero__col-phone">
 								<a href="tel:+79080788723">{{ row.phone }}</a>
@@ -252,12 +250,11 @@ export default {
 			const names = document.querySelectorAll(".hero__col-name");
 			const phones = document.querySelectorAll(".hero__col-phone");
 			const jobs = document.querySelectorAll(".hero__col-job");
-			const vacancy = document.querySelectorAll(".hero__col-vacancy");
 			const salaries = document.querySelectorAll(".hero__col-salary");
 			const cities = document.querySelectorAll(".hero__col-city");
 			const buttons = document.querySelectorAll(".hero__col-buttons");
 
-			const cols = [names, phones, jobs, vacancy, salaries, cities, buttons];
+			const cols = [names, phones, jobs, salaries, cities, buttons];
 
 			for (let i = 0; i < cols.length; i++) {
 				cols[i].forEach((hoverElement) => {
@@ -314,11 +311,6 @@ export default {
 		},
 		redrawSlider() {
 			this.$store.commit("clearPreparedSlides");
-			if (this.$store.state.selectedStatus !== "Все неразобранные") {
-				this.$store.commit("setNewFilterStatus", this.$store.state.selectedStatus);
-			} else {
-				this.$store.commit("clearFilterModelStatus");
-			}
 
 			if (this.$store.getters.isModelEmpty) {
 				this.$store.commit("makePreparedSlides", this.$store.state.rowsData);
@@ -489,40 +481,35 @@ export default {
 	}
 	&__col {
 		box-sizing: border-box;
-		&-vacancy {
-			box-sizing: border-box;
-			max-width: 240px;
-			width: 100%;
-			justify-content: center;
-		}
 		&-name {
 			box-sizing: border-box;
 			text-align: center;
-			max-width: 200px;
+			max-width: 260px;
 			width: 100%;
+			justify-content: center;
 		}
 		&-phone {
 			box-sizing: border-box;
 			white-space: nowrap;
-			max-width: 180px;
+			max-width: 200px;
 			width: 100%;
 			justify-content: center;
 		}
 		&-job {
 			box-sizing: border-box;
-			max-width: 240px;
+			max-width: 330px;
 			width: 100%;
 			justify-content: center;
 		}
 		&-salary {
 			box-sizing: border-box;
-			max-width: 80px;
+			max-width: 120px;
 			width: 100%;
 			justify-content: center;
 		}
 		&-city {
 			box-sizing: border-box;
-			max-width: 170px;
+			max-width: 200px;
 			width: 100%;
 			justify-content: center;
 		}
