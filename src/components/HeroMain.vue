@@ -355,8 +355,7 @@ export default {
 		},
 	},
 	mounted() {
-		// this.$store.dispatch("getRowsData");
-		this.redrawSlider();
+		this.$store.dispatch("getRowsData");
 	},
 	computed: {
 		rowsPerSlide() {

@@ -410,7 +410,7 @@ export default createStore({
 					state.isDataLoading = true;
 					document.title = "Загрузка данных...";
 					await axios
-						.get(`https://b24-ost.ru/hr_integration_opti/vacan/vacancies.php/?token=${token}`)
+						.get(`https://b24-ost.ru/hr_integration_opti/resume.php?token=${token}`)
 						.then((r) => r.data)
 						.then((rowsData) => {
 							commit("setRowsData", rowsData);

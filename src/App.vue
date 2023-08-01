@@ -15,7 +15,6 @@ export default {
 	},
 	mounted() {
 		this.$store.commit("saveRowsData");
-		this.$store.state.isDataLoading = false;
 	},
 };
 </script>
