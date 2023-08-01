@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 export default createStore({
 	state: {
@@ -210,6 +211,10 @@ export default createStore({
 		preSearchedRowsData: [],
 		preSearchedHiddenRowsData: [],
 		currentSearchCounter: 0,
+		isRowsDataReady: false,
+		isDataLoading: true,
+		errorHappened: false,
+		loaderText: "Данные загружаются...",
 	},
 	getters: {
 		isModelEmpty(state) {
@@ -374,8 +379,10 @@ export default createStore({
 						if (Object.hasOwnProperty.call(row, key)) {
 							if (state.searchableKeys.includes(key)) {
 								const element = row[key];
-								if (element.includes(state.searchPhrase)) {
-									return row;
+								if (element !== null) {
+									if (element.includes(state.searchPhrase)) {
+										return row;
+									}
 								}
 							}
 						}
@@ -387,7 +394,35 @@ export default createStore({
 				state.currentSearchCounter = 0;
 			}
 		},
+		setRowsData(state, phpRowsData) {
+			state.rowsData = phpRowsData;
+		},
+		updateDataFlag(state) {
+			state.isRowsDataReady = true;
+		},
 	},
-	actions: {},
+	actions: {
+		async getRowsData({ state, commit }) {
+			const token = document.getElementById("token").getAttribute("value");
+			if (token) {
+				state.isDataLoading = true;
+				await axios
+					.get(`https://b24-ost.ru/hr_integration_opti/vacan/vacancies.php/?token=${token}`)
+					.then((r) => r.data)
+					.then((rowsData) => {
+						commit("setRowsData", rowsData);
+						commit("makePreparedSlides", state.rowsData);
+						commit("updateDataFlag");
+					})
+					.finally(() => {
+						state.isDataLoading = false;
+					});
+			} else {
+				state.loaderText =
+					"Авторизационный токен не получен, заново нажмите на ссылку <<Список вакансий HH>> в боковом меню.";
+				state.errorHappened = true;
+			}
+		},
+	},
 	modules: {},
 });

@@ -16,7 +16,13 @@
 							'switch-active': isSwitchActive,
 						}"
 					>
-						<a href="./replies.html" target="_blank" class="filters__text-switch switch__text">Отклики</a>
+						<a
+							href="https://hh.ru/oauth/authorize?response_type=code&client_id=L471286RMK2ROQMIKUDUI94T06BVUOV28H4J0BS75C13RF6QUL2GILB95N7U0JL0&redirect_uri=https%3A%2F%2Fb24-ost.ru%2Fhr_integration_opti%2Fvacan%2Findex.php%2F"
+							target="_blank"
+							class="filters__text-switch switch__text"
+						>
+							Отклики
+						</a>
 						<span class="filters__text-switch switch__text">Избранное</span>
 					</span>
 				</label>
@@ -79,7 +85,6 @@ export default {
 		return {
 			isSwitchActive: true,
 			isInputActive: false,
-			listVisiblity: false,
 			blockToggleCheckbox: false,
 		};
 	},
@@ -137,9 +142,6 @@ export default {
 		updateSlider() {
 			this.$emit("redrawSlider");
 		},
-		toggleListVisibility() {
-			this.listVisiblity = !this.listVisiblity;
-		},
 		handleSearchInput() {
 			this.removeAllChecked();
 			this.$store.commit("clearFilterModel");
@@ -167,6 +169,7 @@ export default {
 			position: relative;
 			border: 1px solid var(--green-color);
 			border-radius: 10px;
+			max-height: 50px;
 		}
 		&-buttons {
 			width: 100%;
@@ -179,7 +182,6 @@ export default {
 			display: none;
 			border: 0;
 			padding: 0;
-			max-width: 1140px;
 			&-active {
 				border: 1px solid var(--green-color);
 				padding: 20px;
@@ -223,6 +225,7 @@ export default {
 			cursor: pointer;
 			transition: border-radius 0.3s ease;
 			outline: none;
+			max-height: inherit;
 			&-active {
 				border-radius: 5px;
 			}
