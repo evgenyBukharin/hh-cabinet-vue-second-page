@@ -292,6 +292,8 @@ export default {
 		border: 1px solid var(--light-green-color);
 		background: var(--white-color);
 		padding: 10px;
+		padding-bottom: 16px;
+		padding-right: 16px;
 		width: 100%;
 		min-width: 280px;
 		& .filters__category {
@@ -401,6 +403,12 @@ export default {
 .simplebar-track.simplebar-vertical {
 	width: 2px;
 	background: #d9d9d9;
+	right: -9px;
+}
+.simplebar-track.simplebar-horizontal {
+	height: 2px;
+	background: #d9d9d9;
+	bottom: -10px;
 }
 .simplebar-scrollbar {
 	width: 2px;

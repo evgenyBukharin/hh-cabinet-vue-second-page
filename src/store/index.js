@@ -403,24 +403,26 @@ export default createStore({
 	},
 	actions: {
 		async getRowsData({ state, commit }) {
-			const token = document.getElementById("token").getAttribute("value");
-			if (token) {
-				state.isDataLoading = true;
-				await axios
-					.get(`https://b24-ost.ru/hr_integration_opti/vacan/vacancies.php/?token=${token}`)
-					.then((r) => r.data)
-					.then((rowsData) => {
-						commit("setRowsData", rowsData);
-						commit("makePreparedSlides", state.rowsData);
-						commit("updateDataFlag");
-					})
-					.finally(() => {
-						state.isDataLoading = false;
-					});
-			} else {
-				state.loaderText =
-					"Авторизационный токен не получен, заново нажмите на ссылку <<Список вакансий HH>> в боковом меню.";
-				state.errorHappened = true;
+			const tokenInput = document.getElementById("token");
+			if (tokenInput) {
+				const token = tokenInput.getAttribute("value");
+				if (token) {
+					state.isDataLoading = true;
+					document.title = "Загрузка данных...";
+					await axios
+						.get(`https://b24-ost.ru/hr_integration_opti/vacan/vacancies.php/?token=${token}`)
+						.then((r) => r.data)
+						.then((rowsData) => {
+							commit("setRowsData", rowsData);
+							commit("makePreparedSlides", state.rowsData);
+							commit("updateDataFlag");
+							state.isDataLoading = false;
+							document.title = "Список резюме HH";
+						});
+				} else {
+					state.loaderText = `Авторизационный токен не получен, заново перейдите по ссылке "Список резюме HH" в боковом меню.`;
+					state.errorHappened = true;
+				}
 			}
 		},
 	},
