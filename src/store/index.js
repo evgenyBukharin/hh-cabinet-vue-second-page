@@ -409,14 +409,19 @@ export default createStore({
 				if (token) {
 					state.isDataLoading = true;
 					document.title = "Загрузка данных...";
-					await axios
-						.get(`https://b24-ost.ru/hr_integration_opti/resume.php?token=${token}`)
-						.then((r) => r.data)
-						.then((rowsData) => {
-							commit("setRowsData", rowsData);
-							commit("makePreparedSlides", state.rowsData);
-							commit("updateDataFlag");
-							state.isDataLoading = false;
+					Promise.all([axios.get(`https://b24-ost.ru/hr_integration_opti/resume.php?token=${token}`)])
+						.then(
+							axios.spread((data1) => {
+								commit("clearRowsData");
+								commit("setRowsData", data1.data);
+								commit("makePreparedSlides", state.rowsData);
+								commit("updateDataFlag");
+								state.isDataLoading = false;
+							})
+						)
+						.catch(() => {
+							state.errorHappened = true;
+							state.loaderText = `Получение данных не удачно. Сервер отклонил запрос`;
 							document.title = "Список резюме HH";
 						});
 				} else {

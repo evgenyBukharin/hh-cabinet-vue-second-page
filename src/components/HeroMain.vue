@@ -355,6 +355,7 @@ export default {
 		},
 	},
 	mounted() {
+		this.redrawSlider();
 		this.$store.dispatch("getRowsData");
 	},
 	computed: {
