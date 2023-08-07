@@ -365,15 +365,15 @@ export default {
 		preparedSlides() {
 			return this.$store.state.preparedSlides;
 		},
-		isRowsDataReady() {
-			return this.$store.state.isRowsDataReady;
+		isDataLoading() {
+			return this.$store.state.isDataLoading;
 		},
 	},
 	watch: {
 		rowsPerSlide() {
 			this.redrawSlider();
 		},
-		isRowsDataReady() {
+		isDataLoading() {
 			this.redrawSlider();
 			this.makeHovers();
 		},

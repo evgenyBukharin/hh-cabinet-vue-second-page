@@ -1,31 +1,108 @@
 <template>
 	<section class="loader" :class="{ 'loader-hidden': !$store.state.isDataLoading }">
 		<div class="loader__container">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="#ffffff"
-				width="800px"
-				height="800px"
-				viewBox="0 0 32 32"
-				version="1.1"
-				class="loader__image"
-				:class="{ 'loader__image-red': $store.state.errorHappened }"
-			>
-				<path
-					d="M29 12.256h-1.88c-0.198-0.585-0.405-1.072-0.643-1.541l0.031 0.067 1.338-1.324c0.35-0.3 0.57-0.742 0.57-1.236 0-0.406-0.149-0.778-0.396-1.063l0.002 0.002-3.178-3.178c-0.283-0.246-0.654-0.395-1.061-0.395-0.494 0-0.937 0.221-1.234 0.57l-0.002 0.002-1.332 1.33c-0.402-0.206-0.888-0.413-1.39-0.586l-0.082-0.025 0.009-1.88c0.003-0.040 0.005-0.086 0.005-0.133 0-0.854-0.66-1.554-1.498-1.617l-0.005-0h-4.496c-0.844 0.063-1.505 0.763-1.505 1.617 0 0.047 0.002 0.093 0.006 0.139l-0-0.006v1.879c-0.585 0.198-1.071 0.404-1.54 0.641l0.067-0.031-1.324-1.336c-0.299-0.352-0.742-0.573-1.236-0.573-0.407 0-0.778 0.15-1.063 0.397l0.002-0.002-3.179 3.179c-0.246 0.283-0.396 0.655-0.396 1.061 0 0.494 0.221 0.937 0.57 1.234l0.002 0.002 1.329 1.329c-0.207 0.403-0.414 0.891-0.587 1.395l-0.024 0.082-1.88-0.009c-0.040-0.003-0.086-0.005-0.133-0.005-0.854 0-1.554 0.661-1.617 1.499l-0 0.005v4.495c0.062 0.844 0.763 1.505 1.617 1.505 0.047 0 0.093-0.002 0.139-0.006l-0.006 0h1.88c0.198 0.585 0.404 1.072 0.642 1.541l-0.030-0.066-1.335 1.32c-0.351 0.3-0.572 0.744-0.572 1.239 0 0.407 0.149 0.779 0.396 1.064l-0.002-0.002 3.179 3.178c0.249 0.246 0.591 0.399 0.97 0.399 0.007 0 0.014-0 0.021-0h-0.001c0.515-0.013 0.977-0.231 1.308-0.576l0.001-0.001 1.33-1.33c0.403 0.207 0.891 0.414 1.395 0.587l0.082 0.025-0.009 1.878c-0.003 0.040-0.005 0.086-0.005 0.132 0 0.854 0.661 1.555 1.499 1.617l0.005 0h4.496c0.843-0.064 1.503-0.763 1.503-1.617 0-0.047-0.002-0.093-0.006-0.139l0 0.006v-1.881c0.585-0.198 1.073-0.405 1.543-0.643l-0.067 0.031 1.321 1.333c0.332 0.344 0.793 0.562 1.304 0.574l0.002 0h0.002c0.006 0 0.013 0 0.019 0 0.378 0 0.72-0.151 0.971-0.395l3.177-3.177c0.244-0.249 0.395-0.591 0.395-0.968 0-0.009-0-0.017-0-0.026l0 0.001c-0.012-0.513-0.229-0.973-0.572-1.304l-0.001-0.001-1.331-1.332c0.206-0.401 0.412-0.887 0.586-1.389l0.025-0.083 1.879 0.009c0.040 0.003 0.086 0.005 0.132 0.005 0.855 0 1.555-0.661 1.617-1.5l0-0.005v-4.495c-0.063-0.844-0.763-1.504-1.618-1.504-0.047 0-0.093 0.002-0.138 0.006l0.006-0zM29.004 18.25l-2.416-0.012c-0.020 0-0.037 0.010-0.056 0.011-0.198 0.024-0.372 0.115-0.501 0.249l-0 0c-0.055 0.072-0.103 0.153-0.141 0.24l-0.003 0.008c-0.005 0.014-0.016 0.024-0.020 0.039-0.24 0.844-0.553 1.579-0.944 2.264l0.026-0.049c-0.054 0.1-0.086 0.218-0.086 0.344 0 0.001 0 0.003 0 0.004v-0c-0 0.016 0.003 0.028 0.004 0.045 0.006 0.187 0.080 0.355 0.199 0.481l-0-0 0.009 0.023 1.707 1.709c0.109 0.109 0.137 0.215 0.176 0.176l-3.102 3.133c-0.099-0.013-0.186-0.061-0.248-0.13l-0-0-1.697-1.713c-0.008-0.009-0.022-0.005-0.030-0.013-0.121-0.112-0.28-0.183-0.456-0.193l-0.002-0c-0.020-0.003-0.044-0.005-0.068-0.006l-0.001-0c-0.125 0-0.243 0.032-0.345 0.088l0.004-0.002c-0.636 0.362-1.373 0.676-2.146 0.903l-0.074 0.019c-0.015 0.004-0.025 0.015-0.039 0.020-0.096 0.042-0.179 0.092-0.255 0.149l0.003-0.002c-0.035 0.034-0.066 0.071-0.093 0.11l-0.002 0.002c-0.027 0.033-0.053 0.070-0.075 0.11l-0.002 0.004c-0.033 0.081-0.059 0.175-0.073 0.274l-0.001 0.007c-0.001 0.016-0.010 0.031-0.010 0.047v2.412c0 0.15-0.055 0.248 0 0.25l-4.41 0.023c-0.052-0.067-0.084-0.153-0.084-0.246 0-0.008 0-0.016 0.001-0.024l-0 0.001 0.012-2.412c0-0.017-0.008-0.032-0.010-0.048-0.005-0.053-0.015-0.102-0.030-0.149l0.001 0.005c-0.012-0.053-0.028-0.1-0.048-0.145l0.002 0.005c-0.052-0.086-0.109-0.16-0.173-0.227l0 0c-0.029-0.024-0.062-0.046-0.096-0.066l-0.004-0.002c-0.044-0.030-0.093-0.056-0.146-0.076l-0.005-0.002c-0.014-0.005-0.024-0.016-0.039-0.020-0.847-0.241-1.585-0.554-2.272-0.944l0.051 0.026c-0.099-0.054-0.216-0.086-0.341-0.086h-0c-0.022-0.001-0.040 0.004-0.062 0.005-0.18 0.008-0.342 0.080-0.465 0.193l0.001-0c-0.008 0.008-0.021 0.004-0.029 0.012l-1.705 1.705c-0.107 0.107-0.216 0.139-0.178 0.178l-3.134-3.101c0.012-0.1 0.060-0.187 0.13-0.25l0-0 1.714-1.695 0.011-0.026c0.115-0.123 0.189-0.286 0.197-0.466l0-0.002c0.001-0.021 0.005-0.037 0.005-0.058 0-0.001 0-0.002 0-0.003 0-0.126-0.032-0.245-0.088-0.348l0.002 0.004c-0.365-0.636-0.679-1.371-0.903-2.145l-0.018-0.072c-0.004-0.015-0.016-0.026-0.021-0.041-0.042-0.094-0.090-0.176-0.146-0.25l0.002 0.003c-0.065-0.061-0.136-0.117-0.212-0.165l-0.006-0.003c-0.051-0.025-0.109-0.045-0.171-0.057l-0.005-0.001c-0.029-0.009-0.065-0.016-0.102-0.021l-0.004-0c-0.020-0.002-0.037-0.012-0.058-0.012h-2.412c-0.152 0.002-0.248-0.055-0.25-0.002l-0.022-4.409c0.067-0.052 0.151-0.084 0.244-0.084 0.009 0 0.017 0 0.026 0.001l-0.001-0 2.416 0.012c0.152-0.004 0.292-0.054 0.407-0.136l-0.002 0.002c0.024-0.014 0.044-0.028 0.064-0.043l-0.002 0.001c0.109-0.088 0.191-0.206 0.235-0.341l0.001-0.005c0.003-0.010 0.014-0.014 0.017-0.025 0.242-0.847 0.555-1.583 0.946-2.27l-0.026 0.050c0.054-0.1 0.086-0.218 0.086-0.344 0-0.001 0-0.001 0-0.002v0c0.001-0.019-0.003-0.033-0.004-0.052-0.007-0.184-0.080-0.35-0.197-0.475l0 0-0.010-0.024-1.705-1.705c-0.108-0.11-0.142-0.221-0.176-0.178l3.102-3.134c0.101 0.008 0.189 0.058 0.248 0.131l0.001 0.001 1.697 1.713c0.018 0.018 0.046 0.011 0.065 0.027 0.125 0.121 0.295 0.196 0.483 0.196 0.13 0 0.251-0.036 0.355-0.098l-0.003 0.002c0.636-0.364 1.372-0.677 2.145-0.902l0.072-0.018c0.014-0.004 0.024-0.015 0.038-0.019 0.057-0.021 0.105-0.047 0.151-0.077l-0.003 0.002c0.163-0.090 0.281-0.244 0.321-0.427l0.001-0.004c0.014-0.043 0.025-0.093 0.030-0.145l0-0.003c0.001-0.016 0.009-0.030 0.009-0.046v-2.412c0-0.151 0.056-0.249 0.001-0.25l4.41-0.023c0.052 0.067 0.083 0.152 0.083 0.245 0 0.009-0 0.017-0.001 0.026l0-0.001-0.012 2.412c-0 0.016 0.008 0.030 0.009 0.047 0.005 0.055 0.015 0.106 0.031 0.155l-0.001-0.005c0.071 0.234 0.243 0.419 0.464 0.506l0.005 0.002c0.014 0.005 0.025 0.016 0.039 0.020 0.845 0.242 1.58 0.555 2.265 0.945l-0.050-0.026c0.105 0.060 0.231 0.096 0.366 0.096 0 0 0.001 0 0.001 0h-0c0.183-0.008 0.347-0.082 0.471-0.198l-0 0c0.017-0.015 0.043-0.008 0.059-0.024l1.709-1.705c0.105-0.106 0.213-0.137 0.176-0.176l3.133 3.102c-0.012 0.1-0.059 0.186-0.129 0.249l-0 0-1.715 1.697-0.011 0.026c-0.116 0.123-0.19 0.287-0.198 0.468l-0 0.002c-0.001 0.020-0.005 0.036-0.005 0.056 0 0.001 0 0.002 0 0.003 0 0.126 0.032 0.245 0.088 0.348l-0.002-0.004c0.365 0.636 0.679 1.371 0.902 2.144l0.018 0.071c0.003 0.012 0.016 0.017 0.019 0.028 0.046 0.137 0.127 0.253 0.232 0.339l0.001 0.001c0.019 0.015 0.041 0.030 0.063 0.043l0.003 0.002c0.112 0.080 0.252 0.13 0.402 0.134l0.001 0h2.412c0.152-0.001 0.248 0.057 0.25 0.001l0.021 4.409c-0.065 0.053-0.149 0.085-0.24 0.085-0.010 0-0.019-0-0.029-0.001l0.001 0zM16 11.25c-2.623 0-4.75 2.127-4.75 4.75s2.127 4.75 4.75 4.75c2.623 0 4.75-2.127 4.75-4.75v0c-0.003-2.622-2.128-4.747-4.75-4.75h-0zM16 19.25c-1.795 0-3.25-1.455-3.25-3.25s1.455-3.25 3.25-3.25c1.795 0 3.25 1.455 3.25 3.25v0c-0.002 1.794-1.456 3.248-3.25 3.25h-0z"
-				/>
-			</svg>
-			<h3 class="loader__title" :class="{ 'loader__title-red': $store.state.errorHappened }">
+			<div class="loader__container-spinner">
+				<span class="loader__spinner" v-show="$store.state.showSpinner"></span>
+				<svg
+					v-show="$store.state.showErrorIcon"
+					width="200"
+					height="200"
+					viewBox="0 0 200 200"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect x="2.5" y="2.5" width="195" height="195" rx="97.5" stroke="#299B9C" stroke-width="5" />
+					<rect x="70" y="66" width="91" height="5" rx="2.5" transform="rotate(45 70 66)" fill="#299B9C" />
+					<rect
+						x="134"
+						y="69.5355"
+						width="91"
+						height="5"
+						rx="2.5"
+						transform="rotate(135 134 69.5355)"
+						fill="#299B9C"
+					/>
+				</svg>
+				<svg
+					v-show="$store.state.showMessage"
+					width="200"
+					height="200"
+					viewBox="0 0 200 200"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect x="2.5" y="2.5" width="195" height="195" rx="97.5" stroke="#299B9C" stroke-width="5" />
+					<rect x="104" y="42" width="90" height="7" rx="3.5" transform="rotate(90 104 42)" fill="#299B9C" />
+					<rect
+						x="105"
+						y="148.559"
+						width="10"
+						height="10"
+						rx="5"
+						transform="rotate(90 105 148.559)"
+						fill="#299B9C"
+					/>
+				</svg>
+			</div>
+			<h3 class="loader__title">
 				{{ $store.state.loaderText }}
 			</h3>
-			<h3 class="loader__title" v-show="!$store.state.errorHappened">Это может занять какое-то время</h3>
+			<h3 class="loader__title" v-show="$store.state.showTimeTitle">Это может занять какое-то время</h3>
+			<div class="loader__list" v-show="$store.state.showErrorFilesList">
+				<div class="loader__item" v-for="(item, idx) in getFilesDescr()" :key="idx">- {{ item }}</div>
+			</div>
+			<h3 class="loader__button" v-show="$store.state.showErrorFilesList" @click="reloadErroredPaths()">
+				Повторить попытку
+			</h3>
+			<h3
+				class="loader__button loader__button-ok"
+				v-show="$store.state.showMessage"
+				@click="$store.commit('hideLoader')"
+			>
+				ОК
+			</h3>
 		</div>
 	</section>
+	<div class="loader__replies" v-show="$store.state.loaderReplies">
+		<div class="loader__reply" v-for="(item, idx) in $store.state.loaderReplies" :key="idx">
+			<div class="loader__file">{{ item.file }}</div>
+			<div class="loader__message">{{ item.message }}</div>
+			<svg
+				class="loader__icon-close"
+				@click="removeReply(idx)"
+				width="10"
+				height="10"
+				viewBox="0 0 10 10"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<circle cx="5" cy="5" r="5" fill="#E15335" />
+				<path d="M7.5 2.5L2.5 7.5" stroke="white" stroke-linecap="round" />
+				<path d="M7.5 7.5L2.5 2.5" stroke="white" stroke-linecap="round" />
+			</svg>
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
 	name: "DataWaiter",
+	methods: {
+		reloadErroredPaths() {
+			window.location.href =
+				"https://hh.ru/oauth/authorize?response_type=code&client_id=PR0DIA47DE42CEAF62GU2FOUUNF808BL3OAU7QRSG276L01NQN7TA3J133HRS4G8&redirect_uri=https://b24-ost.ru/hr_integration_opti/index.php/";
+		},
+		getFilesDescr() {
+			let filesDescrArray = [];
+			this.$store.state.errorFilesList.forEach((path) => {
+				filesDescrArray.push(this.$store.state.errorPaths[path]);
+			});
+			return filesDescrArray;
+		},
+		removeReply(idx) {
+			this.$store.commit("removeReply", idx);
+		},
+	},
 };
 </script>
 
@@ -34,7 +111,7 @@ export default {
 	z-index: 970;
 	position: absolute;
 	inset: 0;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(255, 255, 255, 0.8);
 	display: flex;
 	justify-content: center;
 	opacity: 1;
@@ -46,52 +123,140 @@ export default {
 		visibility: hidden;
 	}
 	&__container {
-		margin-top: 10%;
+		margin-top: 60px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-	}
-	&__image {
-		width: 120px;
-		height: 120px;
-		animation: spinning-gear 2s ease infinite;
-		transition: fill 0.4s ease 0.1s;
-		&-red {
-			fill: red;
+		&-spinner {
+			width: 200px;
+			height: 200px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 40px;
 		}
 	}
 	&__title {
+		color: var(--black-color);
+		margin: 0;
+		margin-bottom: 4px;
+		font-size: 32px;
+		font-weight: 600;
+		line-height: 39px;
+		text-align: center;
+		max-width: 600px;
+	}
+	&__button {
+		background: var(--green-color);
+		padding: 15px 45px;
+		border-radius: 15px;
+		cursor: pointer;
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 29px;
 		text-align: center;
 		color: var(--white-color);
-		font-size: 24px;
-		line-height: 120%;
 		margin: 0;
-		margin-top: 18px;
-		max-width: 740px;
-		transition: color 0.4s ease, text-shadow 0.4s;
-		text-shadow: -0 -2px 2px transparent, 0 -2px 2px transparent, -0 2px 2px transparent, 0 2px 2px transparent,
-			-2px -0 2px transparent, 2px -0 2px transparent, -2px 0 2px transparent, 2px 0 2px transparent,
-			-1px -2px 2px transparent, 1px -2px 2px transparent, -1px 2px 2px transparent, 1px 2px 2px transparent,
-			-2px -1px 2px transparent, 2px -1px 2px transparent, -2px 1px 2px transparent, 2px 1px 2px transparent,
-			-2px -2px 2px transparent, 2px -2px 2px transparent, -2px 2px 2px transparent, 2px 2px 2px transparent,
-			-2px -2px 2px transparent, 2px -2px 2px transparent, -2px 2px 2px transparent, 2px 2px 2px transparent;
-		&-red {
-			color: red;
-			text-shadow: -0 -2px 2px #ffffff, 0 -2px 2px #ffffff, -0 2px 2px #ffffff, 0 2px 2px #ffffff,
-				-2px -0 2px #ffffff, 2px -0 2px #ffffff, -2px 0 2px #ffffff, 2px 0 2px #ffffff, -1px -2px 2px #ffffff,
-				1px -2px 2px #ffffff, -1px 2px 2px #ffffff, 1px 2px 2px #ffffff, -2px -1px 2px #ffffff,
-				2px -1px 2px #ffffff, -2px 1px 2px #ffffff, 2px 1px 2px #ffffff, -2px -2px 2px #ffffff,
-				2px -2px 2px #ffffff, -2px 2px 2px #ffffff, 2px 2px 2px #ffffff, -2px -2px 2px #ffffff,
-				2px -2px 2px #ffffff, -2px 2px 2px #ffffff, 2px 2px 2px #ffffff;
+		margin-top: 30px;
+		&-ok {
+			padding: 15px 30px;
+		}
+	}
+	&__list {
+		margin-top: 30px;
+	}
+	&__item {
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 22px;
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+	}
+	&__spinner {
+		display: block;
+		color: var(--green-color);
+		font-size: 20px;
+		width: 1em;
+		height: 1em;
+		border-radius: 50%;
+		position: relative;
+		text-indent: -9999em;
+		animation: mulShdSpin 1.3s infinite linear;
+		transform: translateZ(0);
+	}
+	&__replies {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		z-index: 970;
+	}
+	&__reply {
+		padding: 14px 23px;
+		border: 1px solid var(--green-color);
+		border-radius: 10px;
+		background: var(--white-color);
+		position: relative;
+		&:not(:last-child) {
+			margin-bottom: 16px;
+		}
+	}
+	&__file {
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 22px;
+		margin-bottom: 6px;
+	}
+	&__message {
+		width: 345px;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 17px;
+	}
+	&__icon {
+		&-close {
+			position: absolute;
+			top: 6px;
+			right: 6px;
+			cursor: pointer;
 		}
 	}
 }
-@keyframes spinning-gear {
-	0% {
-		transform: rotate(0deg);
-	}
+
+@keyframes mulShdSpin {
+	0%,
 	100% {
-		transform: rotate(360deg);
+		box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em,
+			-3em 0 0 -1em, -2em -2em 0 0;
+	}
+	12.5% {
+		box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em,
+			-3em 0 0 -1em, -2em -2em 0 -1em;
+	}
+	25% {
+		box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em,
+			-3em 0 0 -1em, -2em -2em 0 -1em;
+	}
+	37.5% {
+		box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em,
+			-3em 0em 0 -1em, -2em -2em 0 -1em;
+	}
+	50% {
+		box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0,
+			-3em 0em 0 -1em, -2em -2em 0 -1em;
+	}
+	62.5% {
+		box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em,
+			-3em 0 0 0, -2em -2em 0 -1em;
+	}
+	75% {
+		box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0,
+			-3em 0em 0 0.2em, -2em -2em 0 0;
+	}
+	87.5% {
+		box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0,
+			-3em 0em 0 0, -2em -2em 0 0.2em;
 	}
 }
 </style>

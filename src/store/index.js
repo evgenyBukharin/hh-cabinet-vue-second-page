@@ -22,188 +22,7 @@ export default createStore({
 				ru: "Город",
 			},
 		],
-		rowsData: [
-			{
-				id: 0,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Терапевт",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 1,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Уборщик",
-				salary: "60 000",
-				city: "Екатеринбург",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 2,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Глав врач",
-				salary: "60 000",
-				city: "Алматы",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 3,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Педиатор",
-				salary: "60 000",
-				city: "Екатеринбург",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 4,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Дантист",
-				salary: "60 000",
-				city: "Москва",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 5,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Уборщик",
-				salary: "60 000",
-				city: "Екатеринбург",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 6,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Уборщик",
-				salary: "60 000",
-				city: "Алматы",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 7,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Педиатор",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 8,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Врач-невролог",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 9,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Врач-невролог",
-				salary: "60 000",
-				city: "Алматы",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 10,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Врач-невролог",
-				salary: "60 000",
-				city: "Алматы",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 11,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Врач-невролог",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 12,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Врач-невролог",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 13,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Врач-невролог",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 14,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Врач-невролог",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 15,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Врач-невролог",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 16,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Уборщик",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 17,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Фронтендер",
-				salary: "60 000",
-				city: "Челябинск",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 18,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Педиатор",
-				salary: "60 000",
-				city: "Москва",
-				hhLink: "https://google.com",
-			},
-			{
-				id: 19,
-				name: "Иванов Евгений Иванович",
-				phone: "+7 (908) 078 87 23",
-				job: "Педиатор",
-				salary: "60 000",
-				city: "Нью-Йорк",
-				hhLink: "https://google.com",
-			},
-		],
+		rowsData: [],
 		rowsDataHidden: [],
 		savedRowsData: [],
 		hideHiddenData: true,
@@ -211,10 +30,21 @@ export default createStore({
 		preSearchedRowsData: [],
 		preSearchedHiddenRowsData: [],
 		currentSearchCounter: 0,
-		isRowsDataReady: false,
+		rowsDataUpdated: false,
 		isDataLoading: true,
-		errorHappened: false,
+		showTimeTitle: true,
 		loaderText: "Данные загружаются...",
+		showErrorFilesList: false,
+		errorFilesList: [],
+		errorPaths: {
+			"https://b24-ost.ru/hr_integration_opti/resume.php": "Список резюме из избранного",
+		},
+		token: "",
+		showSpinner: true,
+		showErrorIcon: false,
+		showMessage: false,
+		loaderReplies: [],
+		axiosCounter: 0,
 	},
 	getters: {
 		isModelEmpty(state) {
@@ -394,11 +224,41 @@ export default createStore({
 				state.currentSearchCounter = 0;
 			}
 		},
-		setRowsData(state, phpRowsData) {
-			state.rowsData = phpRowsData;
+		addRowsData(state, responseData) {
+			state.rowsData = [...state.rowsData, ...responseData];
 		},
-		updateDataFlag(state) {
-			state.isRowsDataReady = true;
+		newDataAccepted(state) {
+			state.rowsDataUpdated = true;
+		},
+		hideLoader(state) {
+			state.isDataLoading = false;
+		},
+		showLoaderError(state) {
+			state.loaderText = "Не удалось загрузить некоторые данные";
+			state.showErrorFilesList = true;
+			state.showErrorIcon = true;
+			state.showSpinner = false;
+			state.showTimeTitle = false;
+		},
+		showMessage(state, message) {
+			state.isDataLoading = true;
+			state.showMessage = true;
+			state.loaderText = message;
+			state.showTimeTitle = false;
+			state.showErrorFilesList = false;
+			state.showErrorIcon = false;
+		},
+		addLoaderReply(state, reply) {
+			state.loaderReplies.push(reply);
+		},
+		removeReply(state, idx) {
+			state.loaderReplies.splice(idx, 1);
+		},
+		resetRowsDataUpdated(state) {
+			state.rowsDataUpdated = false;
+		},
+		clearRowsData(state) {
+			state.rowsData = [];
 		},
 	},
 	actions: {
@@ -407,28 +267,72 @@ export default createStore({
 			if (tokenInput) {
 				const token = tokenInput.getAttribute("value");
 				if (token) {
+					state.token = token;
 					state.isDataLoading = true;
 					document.title = "Загрузка данных...";
-					Promise.all([axios.get(`https://b24-ost.ru/hr_integration_opti/resume.php?token=${token}`)])
+					Promise.all([
+						axios
+							.get(`https://b24-ost.ru/hr_integration_opti/resume.php?token=${token}&return_error=true`)
+							.catch((e) => {
+								let url = new URL(e.config.url);
+								let noSearchParamsURL = url.origin + url.pathname;
+								state.errorFilesList.push(noSearchParamsURL);
+							}),
+					])
 						.then(
-							axios.spread((data1) => {
+							axios.spread((response1) => {
 								commit("clearRowsData");
-								commit("setRowsData", data1.data);
-								commit("makePreparedSlides", state.rowsData);
-								commit("updateDataFlag");
-								state.isDataLoading = false;
+								const allResponses = [response1];
+								allResponses.forEach((response) => {
+									if (response?.status == 200) {
+										commit("addRowsData", response.data);
+									}
+								});
 							})
 						)
-						.catch(() => {
-							state.errorHappened = true;
-							state.loaderText = `Получение данных не удачно. Сервер отклонил запрос`;
-							document.title = "Список резюме HH";
+						.finally(() => {
+							if (state.errorFilesList.length == 0) {
+								commit("hideLoader");
+								document.title = "Список резюме HH";
+							} else {
+								commit("showLoaderError");
+							}
+							commit("newDataAccepted");
 						});
 				} else {
-					state.loaderText = `Авторизационный токен не получен, заново перейдите по ссылке "Список резюме HH" в боковом меню.`;
-					state.errorHappened = true;
+					state.loaderText = `Сеанс устарел, заново перейдите по ссылке "Список резюме HH" в боковом меню.`;
+					state.showTimeTitle = false;
+					state.showSpinner = false;
+					state.showErrorIcon = true;
 				}
+			} else {
+				state.loaderText = `Сеанс устарел, заново перейдите по ссылке "Список резюме HH" в боковом меню.`;
+				state.showTimeTitle = false;
+				state.showSpinner = false;
+				state.showErrorIcon = true;
 			}
+		},
+		async reloadErrorFile({ state, commit }, path) {
+			axios
+				.get(path + `?token=${state.token}`)
+				.then((response) => {
+					let url = new URL(response.config.url);
+					let noSearchParamsURL = url.origin + url.pathname;
+					commit("addRowsData", response.data);
+					commit("addLoaderReply", {
+						file: state.errorPaths[noSearchParamsURL],
+						message: "Данные успешно загружены",
+					});
+					commit("newDataAccepted");
+				})
+				.catch((e) => {
+					let url = new URL(e.config.url);
+					let noSearchParamsURL = url.origin + url.pathname;
+					commit("addLoaderReply", {
+						file: state.errorPaths[noSearchParamsURL],
+						message: "Превышено время загрузки, повторите попытку через некоторое время",
+					});
+				});
 		},
 	},
 	modules: {},
