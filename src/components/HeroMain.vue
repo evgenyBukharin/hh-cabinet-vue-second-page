@@ -68,7 +68,7 @@
 									class="hero__container-button hero__container-button-active"
 									@mouseenter="toggleActive"
 									@mouseleave="toggleActive"
-									@click="sendCrmData(row, $event.target)"
+									@click="sendCrmData(row)"
 								>
 									<div class="hero__container-icon">
 										<svg
@@ -254,15 +254,16 @@ export default {
 		};
 	},
 	methods: {
-		async sendCrmData(row, target) {
-			const button = target.closest("button");
-			button.setAttribute("disabled", "disabled");
-			await axios.post(`https://b24-ost.ru/hr_integration_opti/vacan/webhook.php`, row).then((response) => {
-				if (response == "Error") {
-					console.log("someking of error");
-					button.removeAttirbute("disabled");
-				}
-			});
+		async sendCrmData(row) {
+			await axios
+				.post(`https://b24-ost.ru/hr_integration_opti/vacan/webhook.php`, row)
+				.then((response) => {
+					this.$store.commit("addLoaderReply", {
+						file: "Добавление в CRM",
+						message: response.data,
+					});
+				})
+				.catch((e) => console.log(e));
 		},
 		makeHovers() {
 			const names = document.querySelectorAll(".hero__col-name");
@@ -420,10 +421,6 @@ export default {
 				width: 75px;
 				transition: opacity 0.2s linear 0.2s;
 				opacity: 0;
-			}
-			&:disabled {
-				opacity: 0.5;
-				cursor: not-allowed;
 			}
 		}
 		&-icon {

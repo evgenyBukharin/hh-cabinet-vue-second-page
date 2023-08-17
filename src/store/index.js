@@ -250,6 +250,12 @@ export default createStore({
 		},
 		addLoaderReply(state, reply) {
 			state.loaderReplies.push(reply);
+			setTimeout(() => {
+				let idx = state.loaderReplies.findIndex((obj) => {
+					return obj.time == reply.time;
+				});
+				state.loaderReplies.splice(idx, 1);
+			}, 3000);
 		},
 		removeReply(state, idx) {
 			state.loaderReplies.splice(idx, 1);
@@ -271,13 +277,11 @@ export default createStore({
 					state.isDataLoading = true;
 					document.title = "Загрузка данных...";
 					Promise.all([
-						axios
-							.get(`https://b24-ost.ru/hr_integration_opti/resume.php?token=${token}&return_error=true`)
-							.catch((e) => {
-								let url = new URL(e.config.url);
-								let noSearchParamsURL = url.origin + url.pathname;
-								state.errorFilesList.push(noSearchParamsURL);
-							}),
+						axios.get(`https://b24-ost.ru/hr_integration_opti/resume.php?token=${token}`).catch((e) => {
+							let url = new URL(e.config.url);
+							let noSearchParamsURL = url.origin + url.pathname;
+							state.errorFilesList.push(noSearchParamsURL);
+						}),
 					])
 						.then(
 							axios.spread((response1) => {
@@ -322,6 +326,7 @@ export default createStore({
 					commit("addLoaderReply", {
 						file: state.errorPaths[noSearchParamsURL],
 						message: "Данные успешно загружены",
+						time: Date.now(),
 					});
 					commit("newDataAccepted");
 				})
@@ -331,6 +336,7 @@ export default createStore({
 					commit("addLoaderReply", {
 						file: state.errorPaths[noSearchParamsURL],
 						message: "Превышено время загрузки, повторите попытку через некоторое время",
+						time: Date.now(),
 					});
 				});
 		},
